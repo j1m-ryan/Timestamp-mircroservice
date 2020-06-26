@@ -24,7 +24,7 @@ app.get("/api/timestamp/:time", (request, response) => {
     var date = time.split("-")
     if(date.length!=3)  response.json(error);
     if(date[0]<1||date[1]>12||date[1]<1||date[2]>[31]||date[2]<1)response.json(error);
-     myDate = new Date(date[0], date[1], date[2])
+     myDate = new Date(date[0], date[1]-1, date[2])
     unix=myDate.getTime();
     utc=myDate.toUTCString()
 
